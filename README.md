@@ -70,5 +70,5 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 <h3>TEAM DEV</h3>
 
 
- | [<img src="https://avatars.githubusercontent.com/u/86629815?v=4" width="115"><br><sub>@herculesdevbr</sub>](https://github.com/herculesdevbr) | [<img src="https://avatars.githubusercontent.com/u/82280279?v=4" width="115"><br><sub>@Luan Nutels
-</sub>](https://github.com/luannutels)
+ | [<img src="https://avatars.githubusercontent.com/u/86629815?v=4" width="115"><br><sub>@herculesdevbr</sub>](https://github.com/herculesdevbr) | [<img src="https://avatars.githubusercontent.com/u/82280279?v=4" width="115"><br><sub>@luannutels</sub>](https://github.com/luannutels)
+| - |  - 
