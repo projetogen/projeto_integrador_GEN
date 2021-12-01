@@ -7,6 +7,11 @@
 # Sobre
 
 <p align="left"> 📡 Inicio do desenvolvimento do projeto integrador, contudo estamos trabalhando no nosso modelo relacional DER, e por meio de nosso diagrama ja conseguimos identicar nosso projeto escolhido e pensar em soluções para nosso prototipo </p>
+<hr>
+<h3 align="left">👨‍💻 TEMA DA NOSSA SOLUÇÃO : Educação de qualidade
+ </h3>
+ 
+ 👨🏼‍🏫 - [Nações Unidas](https://brasil.un.org/pt-br/sdgs/4)
 
 <!-- TECHNOLOGIES -->
 
@@ -63,7 +68,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 <!-- CONTACT -->
 
-#contatos  TEAM DEV
+#TEAM DEV
 
 
  | [<img src="https://avatars.githubusercontent.com/u/86629815?v=4" width="115"><br><sub>@herculesdevbr</sub>](https://github.com/herculesdevbr) | [<img src="https://avatars.githubusercontent.com/u/82280279?v=4" width="115"><br><sub>@Luan Nutels
