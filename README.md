@@ -1,14 +1,5 @@
 
 <h1 align="center">Team Developer - Grupo 1 </h1>
-
-## 📕 Índice
-
-- [📋 Sobre](#Sobre)
-- [🕹 Tecnologias](#Tecnologias)
-- [🧑🏽‍💻 Iniciando o projeto](#Iniciando)
-- [📝 Licença](#Licença)
-- [🦸 Contatos](#Contatos)
-
 <hr>
 
 <!-- sobre -->
