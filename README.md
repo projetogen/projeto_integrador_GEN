@@ -27,8 +27,7 @@
    
 - 🧲 **Dependências**
   - [Boostrap](https://getbootstrap.com/)
-  - [React-DOM](https://pt-br.reactjs.org/docs/react-dom.html)
-  - [Reactstrap](https://reactstrap.github.io/)
+ 
 
 <hr>
 
