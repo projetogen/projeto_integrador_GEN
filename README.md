@@ -74,7 +74,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 | - |  -
 <br> | [<img src="https://avatars.githubusercontent.com/u/80281695?v=4" width="115"><br><sub>@Mariana Nogueira</sub>](https://github.com/mariana-nogueira21) | [<img src="https://avatars.githubusercontent.com/u/93773423?v=4" width="115"><br><sub>@Augusto1</sub>](https://github.com/MuriloAugusto1)
 |  |   
-<br> | [<img src="https://avatars.githubusercontent.com/u/93775430?v=4" width="115"><br><sub>@Vivian Santana</sub>](https://github.com/Vivian-Santana) | [<img src="https://avatars.githubusercontent.com/u/93266793?v=4" width="115"><br><sub>@okborges</sub>](https://github.com/okborges)
+| [<img src="https://avatars.githubusercontent.com/u/93775430?v=4" width="115"><br><sub>@Vivian Santana</sub>](https://github.com/Vivian-Santana) | [<img src="https://avatars.githubusercontent.com/u/93266793?v=4" width="115"><br><sub>@okborges</sub>](https://github.com/okborges)
 |  |   
 
 
