@@ -67,7 +67,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 <!-- CONTACT -->
 
-#TEAM DEV
+<h3>TEAM DEV</h3>
 
 
  | [<img src="https://avatars.githubusercontent.com/u/86629815?v=4" width="115"><br><sub>@herculesdevbr</sub>](https://github.com/herculesdevbr) | [<img src="https://avatars.githubusercontent.com/u/82280279?v=4" width="115"><br><sub>@Luan Nutels
