@@ -66,7 +66,7 @@ branch de produção
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 <!-- CONTACT -->
-
+<hr>
 <h3>TEAM DEV</h3>
 
 
