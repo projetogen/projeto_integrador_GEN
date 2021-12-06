@@ -6,7 +6,7 @@
 
 # Sobre
 
-<p align="left"> 📡 Início do desenvolvimento do projeto integrador, estamos trabalhando no nosso modelo relacional DER e, por meio de nosso diagrama, já conseguimos identificar nosso projeto escolhido e pensar em soluções para a construção de nosso protótipo </p>
+<p align="left"> 📡 Início do desenvolvimento do projeto integrador, estamos trabalhando no nosso modelo relacional DER e, por meio de nosso diagrama, já conseguimos identificar nosso projeto escolhido e pensar em soluções para a construção de nosso protótipo. </p>
 <hr>
 <h3 align="left">👨‍💻 TEMA DA NOSSA SOLUÇÃO : Educação de qualidade
  </h3>
