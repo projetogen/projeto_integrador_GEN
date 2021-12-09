@@ -9,7 +9,7 @@ import com.projetoIntegrador.EducacaoDeQualidade.model.TemaModel;
 
 
 public interface TemaRepository extends JpaRepository<TemaModel, Long> {
-	public List<TemaModel> FindAllByAssunto(String assunto);
+	public List<TemaModel> findAllByAssunto(String assunto);
 }
 
 
