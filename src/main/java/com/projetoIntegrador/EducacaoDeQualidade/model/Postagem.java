@@ -18,24 +18,24 @@ import org.hibernate.validator.constraints.URL;
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
+	private Long id;
+
 	@NotBlank(message = "Campo obrigatório")
 	@Size(min = 2, max = 255, message = "Tamanho mínimo é de 2 e o máximo é de 255 caracteres")
 	private String titulo;
-	
+
 	@NotBlank(message = "Campo obrigatório")
 	@Size(min = 2, max = 8000, message = "Tamanho mínimo é de 2 e o máximo é de 8000 caracteres")
 	private String texto;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
-	
+
 	private int curtida;
-	
+
 	@URL(message = "A imagem do usuario precisa ser um link")
 	private String imagem;
 
@@ -99,7 +99,6 @@ public class Postagem {
 
 	public void setData(Date data) {
 		this.data = data;
-	}		
-	
+	}
 
 }
