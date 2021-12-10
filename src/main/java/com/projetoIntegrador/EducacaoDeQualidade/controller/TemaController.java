@@ -39,23 +39,22 @@ public class TemaController {
 		return repository.findById(id).map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não existente"));
 	}
-	
-	@PostMapping ("/save")
-	public ResponseEntity<TemaModel>post(@Valid @RequestBody TemaModel tema){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(repository.save(tema));
+
+	@PostMapping("/save")
+	public ResponseEntity<TemaModel> post(@Valid @RequestBody TemaModel tema) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<TemaModel> put (@Valid @RequestBody TemaModel tema) {
+	public ResponseEntity<TemaModel> put(@Valid @RequestBody TemaModel tema) {
 		return ResponseEntity.status(200).body(repository.save(tema));
 	}
-	
+
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable long id) {
-		
+
 		repository.deleteById(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-							
-	}		
+
+	}
 }

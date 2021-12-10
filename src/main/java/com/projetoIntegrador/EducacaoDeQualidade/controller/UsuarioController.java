@@ -23,16 +23,15 @@ import com.projetoIntegrador.EducacaoDeQualidade.repository.UsuarioRepository;
 public class UsuarioController {
 	@Autowired
 	private UsuarioRepository repository;
-	
+
 	@GetMapping
 	public ResponseEntity<List<UsuarioModel>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
-	  @PostMapping("/save")
-	    public ResponseEntity<UsuarioModel> post (@Valid @RequestBody UsuarioModel usuario){
-	            return ResponseEntity.status(200).body(repository.save(usuario));
-	    }
 
-	
+	@PostMapping("/save")
+	public ResponseEntity<UsuarioModel> post(@Valid @RequestBody UsuarioModel usuario) {
+		return ResponseEntity.status(200).body(repository.save(usuario));
+	}
 
 }
