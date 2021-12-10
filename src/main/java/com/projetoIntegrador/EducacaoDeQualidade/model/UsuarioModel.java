@@ -14,7 +14,7 @@ public class UsuarioModel {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
-	private @NotNull @Size(min = 8, max = 50) String nome_completo;
+	private @NotNull @Size(min = 8, max = 50) String nomecompleto;
 
 	private @NotNull @Size(min = 8, max = 30) String email;
 
@@ -28,12 +28,12 @@ public class UsuarioModel {
 		this.id = id;
 	}
 
-	public String getNome_completo() {
-		return nome_completo;
+	public String getNomecompleto() {
+		return nomecompleto;
 	}
 
-	public void setNome_completo(String nome_completo) {
-		this.nome_completo = nome_completo;
+	public void setNomecompleto(String nomecompleto) {
+		this.nomecompleto = nomecompleto;
 	}
 
 	public String getEmail() {
