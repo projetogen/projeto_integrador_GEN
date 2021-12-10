@@ -1,11 +1,18 @@
 package com.projetoIntegrador.EducacaoDeQualidade.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,6 +21,8 @@ import javax.validation.constraints.Size;
 
 import org.aspectj.weaver.ast.Test;
 import org.hibernate.validator.constraints.URL;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "postagem")
@@ -38,12 +47,26 @@ public class Postagem {
 
 	@URL(message = "A imagem do usuario precisa ser um link")
 	private String imagem;
+	
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_tema")
+	@JsonIgnoreProperties ("Postagem")
 
-	public long getId() {
+	private TemaModel tema;
+	
+
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_usuario")
+	@JsonIgnoreProperties ("usuario")
+
+	private UsuarioModel usuario; 
+	
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -63,6 +86,14 @@ public class Postagem {
 		this.texto = texto;
 	}
 
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
 	public int getCurtida() {
 		return curtida;
 	}
@@ -79,26 +110,19 @@ public class Postagem {
 		this.imagem = imagem;
 	}
 
+	public TemaModel getTema() {
+		return tema;
+	}
+
+	public void setTema(TemaModel tema) {
+		this.tema = tema;
+	}
+
 	public UsuarioModel getUsuario() {
-		return getUsuario();
+		return usuario;
 	}
 
 	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
 	}
-
-	public Test getTema() {
-		return getTema();
-	}
-
-	public void setTema(Test tema) {
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
 }
