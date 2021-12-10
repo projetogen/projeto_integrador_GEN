@@ -52,7 +52,6 @@ public class TemaController {
 
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable long id) {
-
 		repository.deleteById(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
