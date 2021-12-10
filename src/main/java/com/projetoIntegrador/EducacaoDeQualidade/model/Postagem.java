@@ -16,7 +16,7 @@ import org.aspectj.weaver.ast.Test;
 import org.hibernate.validator.constraints.URL;
 
 @Entity
-@Table(name = "tb_postagem")
+@Table(name = "postagem")
 public class Postagem {
 
 	@Id
