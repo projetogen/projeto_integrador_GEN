@@ -1,4 +1,4 @@
-package com.projetoIntegrador.EducacaoDeQualidade.model;
+	package com.projetoIntegrador.EducacaoDeQualidade.model;
 
 import java.util.ArrayList;
 
