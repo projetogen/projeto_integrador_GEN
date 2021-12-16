@@ -26,7 +26,9 @@ public class UsuarioModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
 	private @NotNull @Size(min = 8, max = 50) String nomecompleto;
-
+	
+	private @NotNull @Size(min = 3, max = 20) String usuario;
+	
 	private @NotNull @Size(min = 8, max = 30) String email;
 
 	private @NotNull @Size(min = 4, max = 50) String senha;
@@ -36,6 +38,14 @@ public class UsuarioModel {
 	@JsonIgnoreProperties ("usuario")
 	
 	private List<Postagem> postagem = new ArrayList<>();
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
 	public Long getId() {
 		return id;
