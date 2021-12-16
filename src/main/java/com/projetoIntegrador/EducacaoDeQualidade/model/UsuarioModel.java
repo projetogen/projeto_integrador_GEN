@@ -6,14 +6,12 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,13 +23,13 @@ public class UsuarioModel {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
-	private @NotNull @Size(min = 8, max = 50) String nomecompleto;
+	private @NotNull @Size(min = 8, max = 50) String nomeCompleto;
 	
 	private @NotNull @Size(min = 3, max = 20) String usuario;
 	
-	private @NotNull @Size(min = 8, max = 30) String email;
+	private @NotNull @Email @Size(min = 8, max = 30) String email;
 
-	private @NotNull @Size(min = 4, max = 50) String senha;
+	private @NotNull @Size(min = 4) String senha;
 	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
@@ -55,12 +53,12 @@ public class UsuarioModel {
 		this.id = id;
 	}
 
-	public String getNomecompleto() {
-		return nomecompleto;
+	public String getNomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNomecompleto(String nomecompleto) {
-		this.nomecompleto = nomecompleto;
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getEmail() {

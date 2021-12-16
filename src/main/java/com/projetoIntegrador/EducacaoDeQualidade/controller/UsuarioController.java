@@ -23,7 +23,7 @@ import com.projetoIntegrador.EducacaoDeQualidade.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 
 public class UsuarioController {
 	@Autowired
@@ -55,5 +55,7 @@ public class UsuarioController {
 		repository.deleteById(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
+	
+	
 
 }
