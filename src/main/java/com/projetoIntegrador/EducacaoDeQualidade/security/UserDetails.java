@@ -11,7 +11,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
 	private static final long serialVersionUID = 1L;
 	
-	private String usuario;
+	private String email;
 	
 	private String senha;
 	
@@ -20,7 +20,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
 	
 	
 	public UserDetails(UsuarioModel user) {
-		this.usuario = user.getUsuario();
+		this.email = user.getEmail();
 	
 		this.senha = user.getSenha();
 	}
@@ -41,10 +41,9 @@ public class UserDetails implements org.springframework.security.core.userdetail
 		return senha;
 	}
 
-	@Override
-	public String getUsername() {
+	public String getEmail() {
 		// TODO Auto-generated method stub
-		return usuario;
+		return email;
 	}
 
 	@Override
@@ -69,6 +68,13 @@ public class UserDetails implements org.springframework.security.core.userdetail
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return getUsername();
 	}
 
 }

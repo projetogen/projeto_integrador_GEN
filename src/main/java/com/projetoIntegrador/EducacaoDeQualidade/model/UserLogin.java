@@ -2,11 +2,22 @@ package com.projetoIntegrador.EducacaoDeQualidade.model;
 
 public class UserLogin {
 
+	private String usuario;
+	
 	private String email;
 	
 	private String senha;
 	
 	private String token;
+
+	
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
 	public String getEmail() {
 		return email;
