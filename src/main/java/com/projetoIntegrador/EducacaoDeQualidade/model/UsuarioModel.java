@@ -25,11 +25,11 @@ public class UsuarioModel {
 
 	private @NotNull @Size(min = 8, max = 50) String nomeCompleto;
 	
-	private @NotNull @Size(min = 3, max = 20) String usuario;
+	private @NotNull @Size(min = 3, max = 25) String usuario;
 	
-	private @NotNull @Email @Size(min = 8, max = 30) String email;
+	private @NotNull @Email @Size(min = 5, max = 50) String email;
 
-	private @NotNull @Size(min = 4) String senha;
+	private @NotNull @Size(min = 5) String senha;
 	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)

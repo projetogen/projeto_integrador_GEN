@@ -11,7 +11,7 @@ import com.projetoIntegrador.EducacaoDeQualidade.model.UsuarioModel;
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
 	public List<UsuarioModel> findAllByNomeCompleto(String nomeCompleto);
-
+	public Optional<UsuarioModel> findByEmail (String email);
 	public Optional<UsuarioModel> findAllByUsuario(String usuario);
 
 }
