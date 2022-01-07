@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,6 +27,7 @@ public class TemaModel {
 	
 	private String descricao;
 	
+	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
 	private String foto_url;
 	
 
