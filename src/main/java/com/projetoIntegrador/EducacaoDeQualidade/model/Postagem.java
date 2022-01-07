@@ -1,6 +1,6 @@
 package com.projetoIntegrador.EducacaoDeQualidade.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,11 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.URL;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -36,27 +35,26 @@ public class Postagem {
 	@Size(min = 2, max = 8000, message = "Tamanho mínimo é de 2 e o máximo é de 8000 caracteres")
 	private String texto;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date data = new java.sql.Date(System.currentTimeMillis());
+	@UpdateTimestamp
+	private LocalDate data;
 
 	private int curtida;
-
-	@URL(message = "A imagem do usuario precisa ser um link")
-	private String imagem;
 	
+	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
+	@URL(message= "o link deve ser valido")
+	private String imagem;
+
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_tema")
-	@JsonIgnoreProperties ("Postagem")
+	@JsonIgnoreProperties("Postagem")
 
 	private TemaModel tema;
-	
 
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_usuario")
-	@JsonIgnoreProperties ("usuario")
+	@JsonIgnoreProperties("usuario")
 
-	private UsuarioModel usuario; 
-	
+	private UsuarioModel usuario;
 
 	public Long getId() {
 		return id;
@@ -82,11 +80,11 @@ public class Postagem {
 		this.texto = texto;
 	}
 
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

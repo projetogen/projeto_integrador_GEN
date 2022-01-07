@@ -21,15 +21,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "Usuario")
 public class UsuarioModel {
 
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private  Long id;
 
-	private @NotNull @Size(min = 8, max = 50) String nomeCompleto;
+	@NotNull @Size(min = 8, max = 50)
+	private  String nomeCompleto;
 	
-	private @NotNull @Size(min = 3, max = 25) String usuario;
+	@NotNull @Size(min = 3, max = 25)
+	private String usuario;
 	
-	private @NotNull @Email @Size(min = 5, max = 50) String email;
+	@NotNull @Email @Size(min = 5, max = 50)
+	private  String email;
 
-	private @NotNull @Size(min = 5) String senha;
+	@NotNull @Size(min = 5)
+	private String senha;
 	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
