@@ -25,7 +25,7 @@ public class UserManagementController {
 	private UsuarioService usuarioService;
 
 	@PostMapping("/logar")
-	public ResponseEntity<UserLogin> Authentication(@Valid @RequestBody Optional<UserLogin> user) {
+	public ResponseEntity<UserLogin> authentication(@Valid @RequestBody Optional<UserLogin> user) {
 		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(401).build());
 	}
