@@ -2,26 +2,23 @@ package com.projetoIntegrador.EducacaoDeQualidade.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.UpdateTimestamp;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.URL;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "postagem")
-public class Postagem {
+public class PostagemModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,21 +36,20 @@ public class Postagem {
 	private LocalDate data;
 
 	private int curtida;
-	
+
 	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
 	@URL(message= "o link deve ser valido")
 	private String imagem;
-
-	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	
+	@ManyToOne
 	@JoinColumn(name = "fk_tema")
 	@JsonIgnoreProperties("Postagem")
-
 	private TemaModel tema;
 
-	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
-	@JsonIgnoreProperties("usuario")
 
+	@JsonIgnoreProperties("Postagem")
 	private UsuarioModel usuario;
 
 	public Long getId() {
