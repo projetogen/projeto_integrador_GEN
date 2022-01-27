@@ -30,12 +30,12 @@ public class UsuarioController {
 	private UsuarioRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<UsuarioModel>> GetAll() {
+	public ResponseEntity<List<UsuarioModel>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<UsuarioModel> GetById(@PathVariable Long id) {
+	public ResponseEntity<UsuarioModel> getById(@PathVariable Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não existente"));
 	}

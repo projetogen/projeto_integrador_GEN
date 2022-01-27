@@ -30,12 +30,12 @@ public class TemaController {
 	private TemaRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<TemaModel>> GetAll() {
+	public ResponseEntity<List<TemaModel>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TemaModel> GetById(@PathVariable Long id) {
+	public ResponseEntity<TemaModel> getById(@PathVariable Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não existente"));
 	}

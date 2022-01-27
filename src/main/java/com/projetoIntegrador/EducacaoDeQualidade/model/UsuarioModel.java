@@ -23,7 +23,7 @@ public class UsuarioModel {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
-	private @NotNull @Size(min = 8, max = 50) String nomeCompleto;
+	private @NotNull @Size(min = 8, max = 50) String nome;
 	
 	private @NotNull @Size(min = 3, max = 25) String usuario;
 	
@@ -31,57 +31,94 @@ public class UsuarioModel {
 
 	private @NotNull @Size(min = 5) String senha;
 	
+	private String foto;
+	
+	private String tipo;
+	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("usuario")
-	
-	private List<Postagem> postagem = new ArrayList<>();
+	private List<PostagemModel> postagem = new ArrayList<>();
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
+
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 	public String getSenha() {
 		return senha;
 	}
 
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-	public List<Postagem> getPostagem() {
+
+	public String getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+	public List<PostagemModel> getPostagem() {
 		return postagem;
 	}
 
-	public void setPostagem(List<Postagem> postagem) {
+
+	public void setPostagem(List<PostagemModel> postagem) {
 		this.postagem = postagem;
 	}
+
+	
 }

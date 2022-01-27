@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.projetoIntegrador.EducacaoDeQualidade.model.Postagem;
+import com.projetoIntegrador.EducacaoDeQualidade.model.PostagemModel;
 import com.projetoIntegrador.EducacaoDeQualidade.repository.PostagemRepository;
 
 @RestController
@@ -30,28 +30,28 @@ public class PostagemController {
 	private PostagemRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<Postagem>> getAll() {
+	public ResponseEntity<List<PostagemModel>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> getById(@PathVariable Long id) {
+	public ResponseEntity<PostagemModel> getById(@PathVariable Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "id não existente"));
 	}
 
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo) {
+	public ResponseEntity<List<PostagemModel>> getByTitulo(@PathVariable String titulo) {
 		return ResponseEntity.ok(repository.findByTituloContainingIgnoreCase(titulo));
 	}
 
 	@PostMapping("/save")
-	public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem) {
+	public ResponseEntity<PostagemModel> post(@Valid @RequestBody PostagemModel postagem) {
 		return ResponseEntity.status(201).body(repository.save(postagem));
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Postagem> put (@Valid @RequestBody Postagem postagem){
+	public ResponseEntity<PostagemModel> put (@Valid @RequestBody PostagemModel postagem){
 		return ResponseEntity.status(200).body(repository.save(postagem));
 	}
 	
