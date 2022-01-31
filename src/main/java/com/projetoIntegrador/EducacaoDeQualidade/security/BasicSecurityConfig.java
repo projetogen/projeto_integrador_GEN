@@ -2,6 +2,7 @@ package com.projetoIntegrador.EducacaoDeQualidade.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,13 +34,13 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/**").permitAll()
-			.antMatchers(HttpMethod.POST, "/user/cadastrar").permitAll()
-			.antMatchers(HttpMethod.POST, "/user/logar").permitAll()
+			.antMatchers(HttpMethod.POST, "/users/cadastrar").permitAll()
+			.antMatchers(HttpMethod.POST, "/users/logar").permitAll()
 			.antMatchers(HttpMethod.GET ,"/postagens").permitAll()
  			.antMatchers(HttpMethod.GET ,"/tema").permitAll() 
 			.anyRequest().authenticated()
-		.httpBasic().and()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().httpBasic()
+		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().cors()
 		.and().csrf().disable();
 	}
