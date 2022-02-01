@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,11 +23,6 @@ public class TemaModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	
 	private @NotNull String assunto;
-	
-	private String descricao;
-	
-	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
-	private String foto_url;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("tema")
@@ -49,22 +43,6 @@ public class TemaModel {
 
 	public void setAssunto(String assunto) {
 		this.assunto = assunto;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getFoto_url() {
-		return foto_url;
-	}
-
-	public void setFoto_url(String foto_url) {
-		this.foto_url = foto_url;
 	}
 	
 	public List<PostagemModel> getPostagem() {

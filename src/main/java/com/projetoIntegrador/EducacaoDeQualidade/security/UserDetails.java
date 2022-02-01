@@ -10,23 +10,19 @@ import com.projetoIntegrador.EducacaoDeQualidade.model.UsuarioModel;
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
 	private static final long serialVersionUID = 1L;
+
+	private String username;
 	
-	private String email;
-	
-	private String senha;
+	private String password;
 	
 	private List<GrantedAuthority>authorities;
 
 	
 	
 	public UserDetails(UsuarioModel user) {
-		this.email = user.getEmail();
+		this.username = user.getUsuario();
 	
-		this.senha = user.getSenha();
-	}
-	
-
-	public UserDetails() {
+		this.password = user.getSenha();
 	}
 
 	@Override
@@ -38,12 +34,13 @@ public class UserDetails implements org.springframework.security.core.userdetail
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return senha;
+		return password;
 	}
-
-	public String getEmail() {
+	
+	@Override
+	public String getUsername() {
 		// TODO Auto-generated method stub
-		return email;
+		return username;
 	}
 
 	@Override
@@ -68,13 +65,6 @@ public class UserDetails implements org.springframework.security.core.userdetail
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
-	}
-
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return getUsername();
 	}
 
 }
