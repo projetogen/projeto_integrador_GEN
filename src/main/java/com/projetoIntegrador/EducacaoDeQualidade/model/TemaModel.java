@@ -25,7 +25,7 @@ public class TemaModel {
 	private @NotNull String assunto;
 
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties ("tema")
+	@JsonIgnoreProperties("tema")
 	private List<PostagemModel> postagem = new ArrayList<>();
 	
 
