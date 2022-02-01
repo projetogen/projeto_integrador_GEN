@@ -20,10 +20,12 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException{
 		
 		Optional<UsuarioModel> user = userRepository.findAllByUsuario(usuario);
-		user.orElseThrow(()-> new UsernameNotFoundException (usuario + "not found"));
 		
-		return user.map(UserDetails::new).get();
-		
+		if (user.isPresent()) {
+			return new UserDetails(user.get());
+		} else {
+			throw new UsernameNotFoundException("Usuario não existe");
+		}
 	}
 	
 }
