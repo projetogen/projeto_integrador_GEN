@@ -35,8 +35,6 @@ public class PostagemModel {
 	@UpdateTimestamp
 	private LocalDate data;
 
-	private int curtida;
-
 	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
 	@URL(message= "o link deve ser valido")
 	private String imagem;
@@ -48,7 +46,6 @@ public class PostagemModel {
 
 	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
-
 	@JsonIgnoreProperties("Postagem")
 	private UsuarioModel usuario;
 
@@ -82,14 +79,6 @@ public class PostagemModel {
 
 	public void setData(LocalDate data) {
 		this.data = data;
-	}
-
-	public int getCurtida() {
-		return curtida;
-	}
-
-	public void setCurtida(int curtida) {
-		this.curtida = curtida;
 	}
 
 	public String getImagem() {
