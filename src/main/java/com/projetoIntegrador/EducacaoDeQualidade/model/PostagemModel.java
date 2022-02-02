@@ -1,8 +1,7 @@
 package com.projetoIntegrador.EducacaoDeQualidade.model;
 
-import java.time.LocalDate;
 
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.UpdateTimestamp;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.URL;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -33,8 +32,10 @@ public class PostagemModel {
 	@Size(min = 2, max = 8000, message = "Tamanho mínimo é de 2 e o máximo é de 8000 caracteres")
 	private String texto;
 
-	@UpdateTimestamp
-	private LocalDate data;
+	
+	@Temporal(TemporalType.TIMESTAMP) 
+	private Date data = new java.sql.Date(System.currentTimeMillis());
+
 
 	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
 	@URL(message= "o link deve ser valido")
@@ -74,11 +75,11 @@ public class PostagemModel {
 		this.texto = texto;
 	}
 
-	public LocalDate getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
