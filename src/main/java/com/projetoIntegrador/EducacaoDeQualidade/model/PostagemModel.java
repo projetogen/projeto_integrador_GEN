@@ -2,9 +2,8 @@ package com.projetoIntegrador.EducacaoDeQualidade.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,12 +40,12 @@ public class PostagemModel {
 	@URL(message= "o link deve ser valido")
 	private String imagem;
 	
-	@ManyToOne(cascade = CascadeType.REMOVE)
+	@ManyToOne
 	@JoinColumn(name = "fk_tema")
 	@JsonIgnoreProperties("postagem")
 	private TemaModel tema;
 
-	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
 	@JsonIgnoreProperties("postagem")
 	private UsuarioModel usuario;
