@@ -1,4 +1,4 @@
-	package com.projetoIntegrador.EducacaoDeQualidade.model;
+package com.projetoIntegrador.EducacaoDeQualidade.model;
 
 
 
@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.URL;
+import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -35,17 +38,16 @@ public class UsuarioModel {
 	@NotNull @Size(min = 5)
 	private String senha;
 	
+	@URL @Nullable
 	private String foto;
 	
 	private String tipo;
-	
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("usuario")
 	private List<PostagemModel> postagem;
 
-
-
+	
 	public Long getId() {
 		return id;
 	}
