@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.lang.Nullable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -39,6 +41,7 @@ public class PostagemModel {
 
 	@Size(max = 5000, message = "O link da foto não pode ter mais de 5.000 caracteres")
 	@URL(message= "o link deve ser valido")
+	@Nullable
 	private String imagem;
 	
 	@ManyToOne

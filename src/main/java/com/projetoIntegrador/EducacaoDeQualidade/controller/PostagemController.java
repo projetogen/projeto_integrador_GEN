@@ -47,6 +47,9 @@ public class PostagemController {
 
 	@PostMapping("/save")
 	public ResponseEntity<PostagemModel> post(@Valid @RequestBody PostagemModel postagem) {
+		if (postagem.getImagem() == null) {
+			postagem.setImagem("https://cdn.discordapp.com/attachments/932956654310424619/939155042802499594/default.jpg");
+		}
 		return ResponseEntity.status(201).body(repository.save(postagem));
 	}
 	

@@ -28,6 +28,10 @@ public class UsuarioService {
 
 			String senhaencoder = encoder.encode(usuario.getSenha());
 			usuario.setSenha(senhaencoder);
+			
+			if (usuario.getFoto() == null) {
+				usuario.setFoto("https://semeandoafeto.imadel.org.br/packages/trustir/exclusiva/img/user_placeholder.png");
+			}
 
 			return repository.save(usuario);
 		} else if (optionalemail.isPresent()){
