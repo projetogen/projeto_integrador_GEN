@@ -11,4 +11,5 @@ import com.projetoIntegrador.EducacaoDeQualidade.model.PostagemModel;
 public interface PostagemRepository extends JpaRepository<PostagemModel, Long> {
 
 	public List<PostagemModel> findByTituloContainingIgnoreCase(String Titulo);
+	public List<PostagemModel> findPostagemByTemaId(Long id);
 }
