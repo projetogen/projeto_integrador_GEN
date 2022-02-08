@@ -43,7 +43,7 @@ public class UsuarioModel {
 	
 	private String tipo;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "usuario", cascade = {CascadeType.REFRESH, CascadeType.REMOVE})
 	@JsonIgnoreProperties ("usuario")
 	private List<PostagemModel> postagem;
 

@@ -29,7 +29,7 @@ public class UsuarioService {
 			String senhaencoder = encoder.encode(usuario.getSenha());
 			usuario.setSenha(senhaencoder);
 			
-			if (usuario.getFoto() == null) {
+			if (usuario.getFoto() == null || usuario.getFoto() == "") {
 				usuario.setFoto("https://semeandoafeto.imadel.org.br/packages/trustir/exclusiva/img/user_placeholder.png");
 			}
 
@@ -85,6 +85,39 @@ public class UsuarioService {
 			}
 		} else {
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email ou usuário incorreto!");
+		}
+	}
+	
+	public UsuarioModel atualizarUsuario(UsuarioModel usuario) {
+		Optional<UsuarioModel> verifyemail = repository.findEmailById(usuario.getId());
+		Optional<UsuarioModel> verifyusuario = repository.findUsuarioById(usuario.getId());
+		Optional<UsuarioModel> optionalemail = repository.findByEmail(usuario.getEmail());
+		Optional<UsuarioModel> optionalusuario = repository.findAllByUsuario(usuario.getUsuario());
+		if (optionalemail.isEmpty() || verifyemail.get().getEmail().equals(usuario.getEmail()) && optionalusuario.isEmpty() || verifyusuario.get().getUsuario().equals(usuario.getUsuario())) {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+			String senhaencoder = encoder.encode(usuario.getSenha());
+			usuario.setSenha(senhaencoder);
+			
+			if (usuario.getFoto() == null || usuario.getFoto() == "") {
+				usuario.setFoto("https://semeandoafeto.imadel.org.br/packages/trustir/exclusiva/img/user_placeholder.png");
+			}
+			
+			System.out.println(verifyemail.get().getEmail().equals(usuario.getEmail()));
+			System.out.println(verifyemail.toString());
+	
+			usuario.setNome(usuario.getNome());
+			usuario.setUsuario(usuario.getUsuario());
+			usuario.setSenha(usuario.getSenha());
+			usuario.setEmail(usuario.getEmail());
+			usuario.setFoto(usuario.getFoto());
+			usuario.setTipo(usuario.getTipo());
+
+			return repository.save(usuario);
+		} else if (optionalemail.isPresent() && !verifyemail.get().getEmail().equals(usuario.getEmail())){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email já existente");
+		} else {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "usuário já existente");
 		}
 	}
 }
